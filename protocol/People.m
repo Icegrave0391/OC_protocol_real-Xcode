@@ -8,6 +8,8 @@
 
 #import "People.h"
 #import "Animal.h"
+
+char name[50] ;
 @implementation People
 @synthesize Peoplename ,pet ,delegate;
 
@@ -15,9 +17,8 @@
     self = [super init] ;
     if(self){
         printf("please input your name !\n");
-        char s[50];
-        scanf("%s",s) ;
-        Peoplename = s ;
+        scanf("%s",name) ;
+        Peoplename = name ;
     }
     return self ;
 }

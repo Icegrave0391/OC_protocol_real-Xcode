@@ -15,16 +15,44 @@ int main(int argc, const char * argv[]) {
         People * person1 = [[People alloc] init] ;
         Cat * animal1 = [[Cat alloc] init] ;
         Dog * animal2 = [[Dog alloc] init] ;
-        [person1 ownapet:animal1] ;
-        printf("Now the first person is touching two animals\n");
+        printf("now %s, choose one to be as your pet(press1 to select the cat or 2 to select the dog)\n",[person1 Peoplename]) ;
+        
+        int n ;
+        scanf("%i",&n) ;
+        switch (n) {
+            case 1:
+                [person1 ownapet:animal1];
+                printf("You choose the cat.\n");
+                break;
+            case 2:
+                [person1 ownapet:animal2];
+                printf("you choose the dog.\n");
+                break ;
+            default:
+                break;
+        }
+        printf("Now the first person %s is touching two animals\n",[person1 Peoplename]);
         [person1 TouchThePet:animal1];
         [person1 TouchThePet:animal2];
-        printf("Now there is a new person:\n");
+        printf("Now there is a new person whose name is :\n");
         People * person2 = [[People alloc] init] ;
-        [person2 ownapet:animal2] ;
+        printf("now %s, choose one to be as your pet(press1 to select the cat or 2 to select the dog)\n",[person2 Peoplename]) ;
+        scanf("%i",&n) ;
+        switch (n) {
+            case 1:
+                [person2 ownapet:animal1];
+                printf("You choose the cat.\n");
+                break;
+            case 2:
+                [person2 ownapet:animal2];
+                printf("you choose the dog.\n");
+                break ;
+            default:
+                break;
+        }
         person1.delegate = person2 ;
         if([person1.delegate respondsToSelector:@selector(TouchThePet:)]){
-            printf("Now the second person is touching two animals\n");
+            printf("Now the second person %s is touching two animals\n",[person2 Peoplename]);
             [person1.delegate TouchThePet:animal1] ;
             [person1.delegate TouchThePet:animal2] ;
         }

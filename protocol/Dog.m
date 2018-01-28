@@ -18,8 +18,8 @@
     return self ;
 }
 -(void) roar{
-    if(!self.host)NSLog(@"QAQ");
-    else NSLog(@"Bow~Bow~");
+    if(!self.host)printf("QAQ\n");
+    else printf("Bow~Bow~\n") ;
 }
 @end
 
